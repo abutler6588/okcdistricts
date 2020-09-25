@@ -9,14 +9,22 @@ var express     = require("express"),
     Campground  = require("./models/campground"),
     Comment     = require("./models/comment"),
     User        = require("./models/user"),
-    seedDB      = require("./seeds")
-    
-//requring routes
-var commentRoutes    = require("./routes/comments"),
+    seedDB      = require("./seeds"),
+    commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
     indexRoutes      = require("./routes/index")
 
-mongoose.connect("mongodb://localhost/okc_districts", { useNewUrlParser: true, useUnifiedTopology: true });
+//mongoose.connect("mongodb://localhost/okc_districts", { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect("mongodb+srv://devsprout:password1988@okcdistricts.xo52o.mongodb.net/<okcdistricts>?retryWrites=true&w=majority", {
+    useNewUrlParser: true, 
+    useCreateIndex: true,
+    useUnifiedTopology: true
+}).then(() =>{
+    console.log('Connected to DB');
+}).catch(err => {
+    console.log('error:', err.message);
+});
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
@@ -47,7 +55,7 @@ app.use(function(req, res, next){
  app.use("/campgrounds", campgroundRoutes);
  app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3000, function() { 
-    console.log('Server listening on port 3000'); 
-  });
+ app.listen(3000,process.env.PORT, process.env.IP, function(){
+    console.log("The YelpCamp Server Has Started!");
+ });
   
