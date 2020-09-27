@@ -12,7 +12,8 @@ var express     = require("express"),
     seedDB      = require("./seeds"),
     commentRoutes    = require("./routes/comments"),
     campgroundRoutes = require("./routes/campgrounds"),
-    indexRoutes      = require("./routes/index")
+    indexRoutes      = require("./routes/index"),
+    port = process.env.PORT || 3000;
 
 //mongoose.connect("mongodb://localhost/okc_districts", { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.connect("mongodb+srv://devsprout:password1988@okcdistricts.xo52o.mongodb.net/<okcdistricts>?retryWrites=true&w=majority", {
@@ -55,7 +56,7 @@ app.use(function(req, res, next){
  app.use("/campgrounds", campgroundRoutes);
  app.use("/campgrounds/:id/comments", commentRoutes);
 
- app.listen(process.env.PORT, process.env.IP, function(){
-    console.log("The YelpCamp Server Has Started!");
- });
+ app.listen(port, function () {
+    console.log("Server Has Started!");
+  });
   
