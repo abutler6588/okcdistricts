@@ -2,6 +2,10 @@ body {
     background-color: #000;
   }
 
+  #welcomeText {
+    font-family: 'Monoton', cursive;
+  }
+
   #landing-header {
     z-index: 1;
     position: relative;
@@ -80,3 +84,4 @@ body {
 .no-cssanimations .slideshow li {
 	opacity: 1;
 }
+

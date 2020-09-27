@@ -1,3 +1,8 @@
+
+body {
+    background-color: #dde6eb;
+  }
+
 .thumbnail img {
     width: 100%;
 }
@@ -12,5 +17,10 @@
 
 #delete-form {
     display: inline;
+}
+
+#newText {
+    font-family: 'Luckiest Guy', cursive;
+    color: #3B27bA
 }
 

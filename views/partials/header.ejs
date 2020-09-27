@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>
-            OKC Districts
-        </title>
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <title>OKC Districts</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
         <link rel="stylesheet" href="/stylesheets/main.css">
+        <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <nav class="navbar navbar-default">
+
+    <!--ORIGINAL NAVBAR-->
+        <!-- <nav class="navbar navbar-default">
             <div class="container-fluid">
               <div class="navbar-header">
                 <a class="navbar-brand" href="/">OKC Districts</a>
@@ -24,6 +28,26 @@
                     <% } %>
                   </ul>
               </div>
+            </div>
+          </nav> -->
+
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+            <a class="navbar-brand" href="/">OKC Districts</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="nav navbar-nav navbar-right">
+                <% if(!currentUser){ %>
+                    <li ><a class="nav-link" href="/login">Login</a></li>
+                    <li><a class="nav-link" href="/register">Sign Up</a></li>
+                <% } else { %>
+                    <li><a class="nav-link" href="#">Signed In As <%= currentUser.username %></a></li>
+                    <li><a class="nav-link" href="/logout">Logout</a></li>
+                <% } %>
+              </ul>
+            </div>
             </div>
           </nav>
           
